@@ -18,28 +18,33 @@ The core component is the `Inventory[T]` generic class, which supports:
 
 ---
 
-## Code Example
+# Generic Programming – Smart Warehouse Inventory System
 
-```python
-from typing import Generic, TypeVar, List
+## Overview
+This project demonstrates the application of **Generic Programming** in Python using the `typing` module (`Generic` and `TypeVar`). It provides a foundational, reusable container class designed to securely handle single items of arbitrary data types while maintaining type clarity and hint support.
 
-T = TypeVar('T')
+---
 
-class Inventory(Generic[T]):
-    def __init__(self, initial_item: T = None):
-        self.items: List[T] = []
-        if initial_item is not None:
-            self.items.append(initial_item)
+## Technical Features
 
-    def add_item(self, item: T) -> None:
-        self.items.append(item)
+### `Storage[T]` Class
+A generic single-item storage container engineered to accommodate dynamic data types.
+* **`store(item: T) -> None`**: Takes an item of parameterized type `T` and stores it internally.
+* **`retrieve() -> T | None`**: Accesses and returns the currently stored item.
 
-    def get_item(self, index: int = 0) -> T:
-        return self.items[index]
+---
 
-    def get_all_items(self) -> List[T]:
-        return self.items
+## Demonstrations & Test Cases
 
-    def display(self) -> None:
-        for item in self.items:
-            print(f"Type: {type(item).__name__}, Value: {item}")
+The implementation is validated across three primary data structures:
+
+1. **Integer Storage (`Storage[int]`)**: Demonstrates primitive numerical data handling.
+2. **String Storage (`Storage[str]`)**: Manages textual descriptors such as stock codes or warehouse labels.
+3. **List Storage (`Storage[list]`)**: Handles complex structured data collections containing multiple elements.
+
+---
+
+## Project Artifacts
+
+* **Notebook**: `trial-warehouse-inventory-system.ipynb` — Full source code, inline type hints, execution outputs, and test cases.
+* **Repository**: `GENERIC-PROGRAMMING–Smart-Warehouse-Inventory-System`
